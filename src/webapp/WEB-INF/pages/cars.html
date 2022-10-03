@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+    <h2> There are Car information </h2>
+    <div>
+        <table style="width: 100%"  >
+            <tr>
+                <th> CarModel </th>
+                <th> CarPower </th>
+                <th> CarAge </th>
+            </tr>
+            <tr th:each = "car : ${cars}">
+                <td>
+                    <span th:text = "${car.carModel}"></span>
+                </td>
+                <td>
+                    <span th:text = "${car.carPower}"></span>
+                </td>
+                <td>
+                    <span th:text = "${car.carAge}"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
