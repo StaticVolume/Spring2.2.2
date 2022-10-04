@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import web.Dao.CarDao;
 import web.model.Car;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
@@ -16,7 +17,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Car> getCarList() {
-        return carDao.getDaoCarList();
+    public List<Car> getCarList(HttpServletRequest request) {
+        return carDao.getDaoCarList(request);
     }
 }

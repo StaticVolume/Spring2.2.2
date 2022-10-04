@@ -20,17 +20,7 @@ public class CarController {
 
     @GetMapping("/cars")
     public String printCarList(HttpServletRequest request, Model model) {
-        List<Car> cars = carService.getCarList();
-        if (request.getParameter("count") != null) {
-
-            int count = Integer.parseInt(request.getParameter("count"));
-            if (count >= 0 && count < 5) {
-                for(int countCars = cars.size(); countCars > count; --countCars) {
-                    cars.remove(countCars - 1);
-                }
-            }
-        }
-        model.addAttribute("cars", cars);
+        model.addAttribute("carsList",  carService.getCarList(request));
         return "cars";
     }
 }
