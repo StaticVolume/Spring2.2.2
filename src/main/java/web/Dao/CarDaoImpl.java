@@ -17,14 +17,17 @@ public class CarDaoImpl implements CarDao {
         /** пишу без цикла, потому что хочу создать вменяемые навзвания и параметры возраста и мощности машин.
         /* но вопрос остаётся, необходимо ли запрашивать пользователя ввести информацию о 5 машинах и загрузить их
         /* базу данных? Если нет, то нет вопросов, если да, будет обидно потерять 1 день работы....до слёзок. */
+
             cars.add(new Car("Toyota Corolla", 127,15));
             cars.add(new Car("Toyota LandCruiser 200", 250, 10));
             cars.add(new Car("Mazda Demio", 15, 5));
             cars.add(new Car("BMW x3", 210, 3));
             cars.add(new Car("Lada Xray", 157,6));
-            /***************************************************************************************************/
-        if (request.getParameter("count") != null) {
 
+            /***************************************************************************************************/
+
+        if (request.getParameter("count") != null) { /** так как контент не создается процедурно, то было принято решение создать максимальное колличество
+                                                            авто выше, а в данном блоке, в зависимости от запроса, обрезать или не обрезать результирующий List<Car></>*/
             int count = Integer.parseInt(request.getParameter("count"));
             if (count >= 0 && count < 5) {
                 for(int countCars = cars.size(); countCars > count; --countCars) {
@@ -32,7 +35,6 @@ public class CarDaoImpl implements CarDao {
                 }
             }
         }
-
         return cars;
     }
 }
